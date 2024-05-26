@@ -26,50 +26,59 @@ class MyAppBar extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             child: Image.asset("assets/images/transparent_logo.png")
           ),
-           Padding(
-            padding: const EdgeInsets.only(right: 20),
+           const Padding(
+            padding: EdgeInsets.only(right: 20),
             child: Row(
               children: [
 
-                TextButton.icon(
-                  onPressed: (){}, 
-                  icon: const Icon( Icons.account_box_outlined),
-                  label: const Text('Text Icon'),
+                MyTextButton(
+                  text: "HOME",
+                  icon: Icons.home,
+                ),
+                MyTextButton(
+                  text: "SKILLS",
+                  icon: Icons.person,
+                ),
+                MyTextButton(
+                  text: "PROYECTS",
+                  icon: Icons.work,
+                ),
+                MyTextButton(
+                  text: "ABOUT ME",
+                  icon: Icons.email,
                 ),
 
-
-                const SizedBox(width: 20),
-                const Text(
-                  'About',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 20),
-                const Text(
-                  'Projects',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 20),
-                const Text(
-                  'Contact',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class MyTextButton extends StatelessWidget {
+
+  final String text;
+  final IconData icon;
+
+  const MyTextButton({
+    super.key, required this.text, required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton.icon(
+      onPressed: (){}, 
+      icon: Icon(icon, color: Colors.white, size: 15),
+      label: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontFamily: 'Monda',
+          fontSize: 15,
+        ),
+      )
     );
   }
 }
