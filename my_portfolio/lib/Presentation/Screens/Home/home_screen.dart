@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/Presentation/Screens/Home/widgets/home_appbar.dart';
+import 'package:my_portfolio/Presentation/Screens/Home/widgets/first_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,11 +16,7 @@ class HomeScreen extends StatelessWidget {
               SliverList(
                 delegate: SliverChildListDelegate(
                   [
-                    Container(
-                      height: 768,
-                      width: double.maxFinite,
-                      color: const Color.fromARGB(255, 26, 42, 64),
-                    ),
+                    const FirstPage(),
                     Container(
                       height: 768,
                       width: double.maxFinite,
@@ -41,4 +38,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
 

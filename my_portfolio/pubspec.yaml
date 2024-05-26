@@ -83,6 +83,9 @@ flutter:
         - asset: assets/fonts/Monda-Regular.ttf
         - asset: assets/fonts/Monda-Bold.ttf
           weight: 700
+    - family: Mandali
+      fonts:
+        - asset: assets/fonts/Mandali-Regular.ttf
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
