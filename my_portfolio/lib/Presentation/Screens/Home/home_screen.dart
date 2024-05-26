@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:my_portfolio/Presentation/Screens/Home/widgets/home_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -42,25 +42,3 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 65,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[
-              Color(0xFF17263D),
-              Color(0xFF119190),
-              Color(0xFF0C1729)
-            ],
-          ),
-        borderRadius: BorderRadius.circular(40)
-      ),
-    );
-  }
-}
