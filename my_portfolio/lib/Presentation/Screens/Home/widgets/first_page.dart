@@ -7,10 +7,10 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 768,
       width: double.infinity,
-      color: const Color.fromARGB(255, 26, 42, 64),
+
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -47,7 +47,7 @@ class FirstPage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.1, // 50% of screen width
+              width: MediaQuery.of(context).size.width * 0.1,
             ),
             SizedBox(
               height: 200,
