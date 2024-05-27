@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
       if (context != null) {
         Scrollable.ensureVisible(
           context,
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
           curve: Curves.easeInOut,
         );
       }
