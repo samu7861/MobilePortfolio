@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -15,10 +16,10 @@ class ThirdPage extends StatelessWidget {
         spacing: 20,
         runSpacing: 20,
         children: [
-          GlassMorphism(),
-          GlassMorphism(),
-          GlassMorphism(),
-          GlassMorphism(),
+          GlassMorphism(myIcon: Icons.android,),
+          GlassMorphism(myIcon: Icons.web,),
+          GlassMorphism(myIcon: Icons.apple,),
+          GlassMorphism(myIcon: Icons.window,),
         ],
       )
     );
@@ -26,8 +27,11 @@ class ThirdPage extends StatelessWidget {
 }
 
 class GlassMorphism extends StatelessWidget {
+
+  final IconData? myIcon;
+
   const GlassMorphism({
-    super.key,
+    super.key, required this.myIcon,
   });
 
   @override
@@ -60,21 +64,72 @@ class GlassMorphism extends StatelessWidget {
                   ]),
             ),
           ),
-          const Center(
-            child: Text(
-              "GlassMorphism", 
-              style: TextStyle(
-                fontSize: 30, color: Colors.white
-                ),
-              )
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 30,),
+                  const Placeholder(
+                      fallbackHeight: 200,
+                    ),                                     
+                  const SizedBox(height: 30,),
+                  Text(
+                    "ToktTik FLutter",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.5),
+                      fontSize: 25,
+                    ),
+                  ),
+                  Text(
+                    "A pryect where i try to clone the TikTok app using Flutter and other things for create better",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.5),
+                      fontSize: 15,
+                    ),
+                  ),
+                  SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                    children: [
+                      Container(  
+                        width: 200,              
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Learn More",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.5),
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.1),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(myIcon)
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
+          ),
         ],
       ),
     ),
-        );
+  );
   }
 }
-
-
-
 
