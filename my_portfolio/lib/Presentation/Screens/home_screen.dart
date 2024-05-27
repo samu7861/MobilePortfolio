@@ -10,22 +10,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final ScrollController _scrollController = ScrollController();
+    final List<GlobalKey> keys = [
+      GlobalKey(),
+      GlobalKey(),
+      GlobalKey(),
+    ];
+    final ScrollController scrollController = ScrollController();
 
-    void scrollToTop() {
-      _scrollController.animateTo(
-        0.0,
-        duration: Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
-    }
-
-    void scrollToBottom() {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
+    void scrollToWidget(GlobalKey key) {
+      final context = key.currentContext;
+      if (context != null) {
+        Scrollable.ensureVisible(
+          context,
+          duration: Duration(seconds: 1),
+          curve: Curves.easeInOut,
+        );
+      }
     }
 
     return Scaffold(
@@ -42,15 +42,15 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           CustomScrollView(
-            controller: _scrollController,
+            controller: scrollController,
             physics: const BouncingScrollPhysics(),           
             slivers: <Widget>[
               SliverList(               
                 delegate: SliverChildListDelegate(                  
                   [
-                    const FirstPage(),
-                    const SecondPage(),
-                    const ThirdPage(),
+                    FirstPage(key: keys[0],),
+                    SecondPage(key: keys[1],),
+                    ThirdPage(key: keys[2],),
                     //const FourthPage(),
                   ],
                 ),
@@ -61,8 +61,14 @@ class HomeScreen extends StatelessWidget {
             left: 40,
             right: 40,
             top: 20,
-            child: MyAppBar(scrollType: [scrollToTop, scrollToBottom],),
-          ),
+            child: MyAppBar(
+              scrollType: [
+                () => scrollToWidget(keys[0]),
+                () => scrollToWidget(keys[1]),
+                () => scrollToWidget(keys[2]),
+                // Add more if you have more widgets
+              ],
+            ),          ),
         ],
       ),
     );

@@ -43,12 +43,12 @@ class MyAppBar extends StatelessWidget {
                 MyTextButton(
                   text: "SKILLS",
                   icon: Icons.person,
-                  typeScroll: scrollType[0],
+                  typeScroll: scrollType[1],
                 ),
                 MyTextButton(
                   text: "PROYECTS",
                   icon: Icons.work,
-                  typeScroll: scrollType[1],
+                  typeScroll: scrollType[2],
                 ),
                 MyTextButton(
                   text: "ABOUT ME",
