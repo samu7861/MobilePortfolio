@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/Presentation/Screens/Home/home_screen.dart';
+import 'package:my_portfolio/Presentation/Screens/home_screen.dart';
 import 'package:my_portfolio/config/styles/app_theme.dart';
 
 void main() {
