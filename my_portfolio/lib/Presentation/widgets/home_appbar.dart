@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget {
-  const MyAppBar({super.key});
+
+  final List<VoidCallback> scrollType;
+
+  const MyAppBar({super.key, required this.scrollType});
 
   @override
   Widget build(BuildContext context) {
@@ -27,26 +30,30 @@ class MyAppBar extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             child: Image.asset("assets/images/transparent_logo.png")
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 20),
+           Padding(
+            padding: const EdgeInsets.only(right: 20),
             child: Row(
               children: [
 
                 MyTextButton(
                   text: "HOME",
                   icon: Icons.home,
+                  typeScroll: scrollType[0],
                 ),
                 MyTextButton(
                   text: "SKILLS",
                   icon: Icons.person,
+                  typeScroll: scrollType[0],
                 ),
                 MyTextButton(
                   text: "PROYECTS",
                   icon: Icons.work,
+                  typeScroll: scrollType[1],
                 ),
                 MyTextButton(
                   text: "ABOUT ME",
                   icon: Icons.email,
+                  typeScroll: scrollType[0],
                 ),
 
               ],
@@ -69,15 +76,18 @@ class MyTextButton extends StatelessWidget {
 
   final String text;
   final IconData icon;
+  final VoidCallback typeScroll;
 
   const MyTextButton({
-    super.key, required this.text, required this.icon,
+    super.key, required this.text, required this.icon, required this.typeScroll,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: (){}, 
+      onPressed: (){
+        typeScroll();
+      }, 
       icon: Icon(icon, color: Colors.white, size: 15),
       label: Text(
         text,

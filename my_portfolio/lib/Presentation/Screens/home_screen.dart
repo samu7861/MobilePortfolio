@@ -10,7 +10,23 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    ScrollController _scrollController = ScrollController();
+    final ScrollController _scrollController = ScrollController();
+
+    void scrollToTop() {
+      _scrollController.animateTo(
+        0.0,
+        duration: Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+
+    void scrollToBottom() {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        duration: Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 26, 42, 64),
@@ -41,11 +57,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          const Positioned(
+          Positioned(
             left: 40,
             right: 40,
             top: 20,
-            child: MyAppBar(),
+            child: MyAppBar(scrollType: [scrollToTop, scrollToBottom],),
           ),
         ],
       ),
